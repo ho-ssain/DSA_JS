@@ -333,3 +333,93 @@ Number.MAX_SAFE_INTEGER + 1.1223 === Number.MAX_SAFE_INTEGER + 4.3322 // false
 -infinity < Number.MIN_SAFE_INTEGER < Number.Min_VALUE < 0 < Number.MAX_SAFE_INTEGER < Number.MAX_VALUE < infinity
 
 ```
+
+## Number Algorithms
+
+==> One of the most popular algorithm involving numbers is for testing whether a number is prime or not.
+
+prime number-: only divisible by 1 and itself.
+Examples: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+
+algo(1)-: O(n)
+
+- input n;
+- itearte from 2 to n (exclude n)
+- loop-: if n % i === 0 return false
+- return true
+
+```code
+const isPrime = (n) => {
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+};
+
+// 2, 3, 5, 7, 11, 13, 17, 19, 23, 29
+if (isPrime(29)) {
+  document.write("Wow! 😃, It's A Prime!");
+} else {
+  document.write("Opps! 🙂, Not A Prime!");
+}
+
+```
+
+This algo can be easily improved by ignoring multiple of 2s, Hence the loop size reduced by half of n.
+
+algo(2)-:
+
+- input n
+- iterate 2 to n / 2
+- loop-: if n % i === 0 return false
+- return true
+
+```code
+const isPrime = (n) => {
+  for (let i = 2; i <= n / 2; i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+};
+
+```
+
+but more optimization posible
+
+Ok, let's first see some prime numbers-:
+2, 3,
+5, 7, 11,
+13, 17, 19,
+23, 29,
+31, 37,
+41, 43, 47,
+53, 59,
+61, 67,
+71, 73, 79
+
+It's hard to see, but all primes are of the form of 6k +/- 1 (k is some integer) except 2 and 3
+5 = 6 x 1 - 1
+7 = 6 x 1 + 1
+11 = 6 x 2 -1
+
+algo(3)-:
+
+- input n
+- if n <= 1 return false
+- if n <= 3 return false
+- if [ n % 2 === 0 or n % 3 === 0 ] return false
+- The loop starts from i = 5 and continues as long as i x i is less than or equal to n. This is an optimization because if a non-prime number has a factor greater than its square root, it must also have a factor smaller than its square root. So we just need to check only up to the square root of n.
+
+```code
+const isPrime = (n) => {
+  if (n <= 1 || n <= 3) return false;
+  if (n % 2 === 0 || n % 3 === 0) return false;
+  for (let i = 5; i * i < n; i = i + 6) {
+    if (n % i === 0 || n % (i + 2) === 0) return false;
+  }
+  return true;
+};
+
+```
+
+## Prime Factorization
