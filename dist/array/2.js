@@ -1,0 +1,14 @@
+"use strict";
+let array1 = [1, 2, 3, 4, 5];
+console.log(array1.slice(1, 3));
+console.log(array1.slice(3));
+console.log(array1.slice());
+console.log(array1 === array1.slice());
+let array2 = array1;
+array2[0] = 50;
+console.log(array1);
+console.log(array2);
+let array3 = Array.from(array1);
+array3[0] = 100;
+console.log(array1);
+console.log(array3);

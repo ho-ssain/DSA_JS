@@ -330,7 +330,10 @@ Number.MAX_SAFE_INTEGER + 1.1223 === Number.MAX_SAFE_INTEGER + 4.3322 // false
 ## Size Summary
 
 ```text
--infinity < Number.MIN_SAFE_INTEGER < Number.Min_VALUE < 0 < Number.MAX_SAFE_INTEGER < Number.MAX_VALUE < infinity
+-infinity < Number.MIN_SAFE_INTEGER
+  < Number.Min_VALUE < 0
+  < Number.MAX_SAFE_INTEGER < Number.MAX_VALUE
+  < infinity
 
 ```
 
@@ -423,3 +426,31 @@ const isPrime = (n) => {
 ```
 
 ## Prime Factorization
+
+// Prime factorization is the process of breaking down a composite number into its prime factors, which are the prime numbers that multiply together to give the original number. This is an important concept in number theory and has various applications in mathematics and computer science. There are several algorithms for prime factorization, with some of the most commonly used ones being trial division, Pollard's rho algorithm, and the quadratic sieve. The first algorithm is the simplest and most intuitive, but it is also the slowest. The second algorithm is faster than the first, but it is still too slow for large numbers. The third algorithm is the fastest, but it is also the most complicated.
+
+// **_Trial Division Algorithm:_**
+The trial division algorithm is a straightforward method for finding the prime factors of a number 'n'.
+
+1. start with the number you want to factor, 'n', and initialize a variable, say 'divisor' = 2
+2. While 'n' is greater than 1
+   a. Check if 'n' is divisible by 'divisor'
+   b. if it is divisble, divide 'n' by 'divisor' and record 'divisor' as one of the prime facotrs.
+   c. if it is not divisible, increment 'divisor' by 1 and continue to the next iteration.
+3. Repeat step 2 until 'n' becomes 1
+4. The recorded divisors are the prime factors of the original number
+
+```code
+const primeFactorization = (n) => {
+  let record = [];
+  let divisor = 2;
+  while (n > 1) {
+    if (n % divisor === 0) {
+      record.push(divisor);
+      n = n / divisor;
+    } else divisor++;
+  }
+};
+
+
+```
