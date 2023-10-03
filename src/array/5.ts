@@ -4,4 +4,4 @@ const add = (a: number, b: number, c: number, d: number): number => {
 };
 
 const num: number[] = [1, 2, 3, 4, 5];
-console.log(add(...num));
+// console.log(add(...num));
