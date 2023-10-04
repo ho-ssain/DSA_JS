@@ -142,3 +142,62 @@ w = word size / means no. of bytes occupied by each element.
 2. Pop
 3. Top
 4. isEmpty
+
+## Application of Stack
+
+- Balancing of Symbols
+- Redo-undo features at many places like editors, Photoshop.
+- Forward and backward in web browsers
+- Used in many algorithms like Tower of Hanoi, tree traversals, DFS search
+- Conversion of polish notations
+  1. infix notation - operator is between the operands: x + y
+  2. prefix notation - operator is before the operands: + xy
+  3. postfix notation - operator is after the operands: xy +
+- To reverse a string
+- when function (sub-program) is called
+  when a function is called, the last one will be completed first. It is the property of Stack. There is a memory area specially reserved for this stack.
+
+## Tower of Hanoi
+
+A = 3 2 1
+B =
+C =
+
+=>
+
+A =
+B =
+C = 3 2 1
+
+rule-1: move one at a time
+rule-2: alltime decending order
+
+Start the Algo-:
+
+1. A -> C
+2. A -> B
+3. C -> B
+4. A -> C
+5. B -> A
+6. B -> C
+7. A -> C
+
+so, when n = 3, transitions no. 7
+so, total no. of transitions = 2^n - 1
+
+## Recursive Method for Tower of hanoi
+
+Tower(N, b, a, e)
+
+Tower(N-1, b, e, a)
+
+Tower(N-1, a, b, e)
+
+![figure 13](img/fig-13.png)
+
+## Queue
+
+- Linear Data Structure
+- Restricted DS
+- Based on FIFO Concept
+- rear and font two parts for insertion and deletion purpose
